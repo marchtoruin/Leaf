@@ -1,0 +1,1 @@
+{"identifier":"default","description":"Reader window events","windows":["main"],"permissions":["core:default","core:window:allow-close"]}

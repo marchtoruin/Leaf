@@ -1,0 +1,1 @@
+{"name":"leaf-reader","version":"0.1.0","private":true,"type":"module","scripts":{"dev":"vite --host 127.0.0.1","build":"vite build","tauri":"tauri","test":"node --test"},"dependencies":{"@tauri-apps/api":"^2","dompurify":"^3","highlight.js":"^11","marked":"^17"},"devDependencies":{"@tauri-apps/cli":"^2","jsdom":"^31.0.1","vite":"^6"}}

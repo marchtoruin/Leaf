@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Leaf — Markdown Reader</title></head><body><header><a class="brand" href="#" aria-label="Leaf home">◩ <span>leaf</span></a><div id="filename">Markdown, beautifully read.</div><nav aria-label="Document controls"><button id="open">Open file <kbd>Ctrl O</kbd></button><button id="edit">Edit</button><select id="theme" aria-label="Color theme"><option value="light">Light</option><option value="dark">Dark</option><option value="cyan">Cyan</option><option value="magenta">Magenta</option></select></nav></header><main><article id="document"><div class="welcome"><div class="eyebrow">A LITTLE ROOM TO READ</div><h1>Your words.<br>A quieter place.</h1><p>Open a Markdown file and settle in.<br>Just the page, beautifully rendered.</p><button id="welcome-open" class="primary">Open a Markdown file <span>↗</span></button><small>or drop a .md file anywhere</small></div></article><section id="editor" aria-label="Markdown editor" hidden>
+  <div class="editor-toolbar">
+    <div id="format" role="group" aria-label="Markdown formatting">
+      <button data-format="heading">Heading</button>
+      <button data-format="bold"><strong>Bold</strong></button>
+      <button data-format="italic"><em>Italic</em></button>
+      <button data-format="list">List</button>
+      <button data-format="numbered">Numbered list</button>
+      <button data-format="quote">Quote</button>
+      <button data-format="link">Link</button>
+      <button data-format="code">Code</button>
+      <button data-format="block">Code block</button>
+    </div>
+    <div class="save-controls">
+      <button id="save-as">Save As</button><button id="save" title="Save (Ctrl+S)">Save</button>
+    </div>
+  </div>
+  <div class="editor-panes">
+    <section class="editor-pane">
+      <label class="pane-title" for="source">Markdown</label>
+      <textarea id="source" spellcheck="false" placeholder="Start typing Markdown…"></textarea>
+    </section>
+    <section class="editor-pane" aria-labelledby="preview-title">
+      <h2 id="preview-title" class="pane-title">Preview</h2>
+      <div class="preview-scroll"><article id="preview"></article></div>
+    </section>
+  </div>
+</section></main>
+<dialog id="unsaved" aria-labelledby="unsaved-title">
+  <form method="dialog">
+    <h2 id="unsaved-title">Discard unsaved changes?</h2>
+    <p>Your edits will be lost.</p>
+    <div class="dialog-actions"><button value="keep" autofocus>Keep editing</button><button value="discard">Discard changes</button></div>
+  </form>
+</dialog><footer><span id="status">Made for reading.</span><span>MARKDOWN READER</span></footer><div id="notice" role="status" hidden></div><script type="module" src="/src/main.js"></script></body></html>
