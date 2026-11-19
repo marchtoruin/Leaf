@@ -4,6 +4,7 @@ import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow';
 
 import { renderMarkdown } from './render.js';
 import { attachFormatting } from './format.js';
+import { guardWindowClose } from './window-close.js';
 
 const native = !!window.__TAURI_INTERNALS__;
 const el = id => document.getElementById(id);
@@ -229,17 +230,11 @@ for (const target of [article, preview]) {
 
 if (native) {
   const win = getCurrentWebviewWindow();
-  let closing = false;
-  await win.onCloseRequested(event => {
-    if (closing || (!dirty() && !busy)) return;
-    event.preventDefault();
-    if (busy) return;
-    confirmDiscard().then(async discard => {
-      if (!discard) return;
-      closing = true;
-      try { await win.close(); }
-      catch (error) { closing = false; notice(String(error), true); }
-    });
+  await guardWindowClose(win, {
+    isDirty: dirty,
+    isBusy: () => busy,
+    confirmDiscard,
+    reportError: error => notice(String(error), true)
   });
   await win.onDragDropEvent(event => {
     document.body.classList.toggle('dragging', ['enter', 'over'].includes(event.payload.type));
